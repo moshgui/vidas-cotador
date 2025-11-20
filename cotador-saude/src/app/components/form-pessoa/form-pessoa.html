@@ -1,4 +1,6 @@
-<button class="btn btn-sm btn-outline-secondary mb-3" routerLink="/">Voltar</button>
+<app-buttons routerLink="/" titulo="Voltar" classeBotao="btn-outline-secondary mb-3"
+  >Voltar</app-buttons
+>
 
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
   <div class="card p-4 p-md-5 border rounded text-center" style="max-width: 700px; width: 100%">
@@ -7,20 +9,18 @@
 
     <!-- Loop através das pessoas -->
     <div
-      *ngFor="let cliente of pessoas; let i = index"
+      *ngFor="let cliente of clientes; let i = index"
       class="form-section bg-light rounded mb-3 p-4 text-start position-relative"
     >
       <!-- Cabeçalho com título e botão de remover -->
       <div class="d-flex justify-content-between align-items-center mb-3">
         <h6 class="fw-semibold mb-0">Cliente {{ i + 1 }}</h6>
-        <button
-          *ngIf="pessoas.length > 1"
-          type="button"
-          class="btn btn-sm btn-outline-danger"
+        <app-buttons
+          *ngIf="clientes.length > 1"
           (click)="removerCliente(cliente.id)"
-        >
-          Remover cliente
-        </button>
+          titulo="Remover cliente"
+          classeBotao="btn-outline-danger"
+        ></app-buttons>
       </div>
 
       <!-- Campos do formulário -->
@@ -63,21 +63,19 @@
         />
       </div>
     </div>
-
-    <!-- Botão adicionar pessoa -->
-    <div class="d-grid mb-4">
-      <button
-        type="button"
-        class="btn btn-sm btn-outline-secondary p-2"
+    <div class="d-grid gap-2">
+      <!-- Botão adicionar pessoa -->
+      <app-buttons
         (click)="adicionarCliente()"
-      >
-        Adicionar mais uma pessoa
-      </button>
-    </div>
+        titulo="Adicionar mais um pessoa"
+        classeBotao="btn-outline-secondary p-2 w-100"
+      ></app-buttons>
 
-    <!-- Botão buscar planos -->
-    <div class="d-grid">
-      <button type="button" class="btn btn-success p-2">Buscar planos disponíveis</button>
+      <!-- Botão buscar planos -->
+      <app-buttons
+        titulo="Buscar planos disponíveis"
+        classeBotao="btn-success p-2 w-100"
+      ></app-buttons>
     </div>
   </div>
 </div>

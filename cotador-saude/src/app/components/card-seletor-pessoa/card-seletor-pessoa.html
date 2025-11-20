@@ -2,6 +2,10 @@
   <div class="card-body">
     <h6 class="card-title">{{ tipo_pessoa }}</h6>
     <p class="card-text small">{{ descricao }}</p>
-    <button routerLink="/iniciar-cotacao" class="btn btn-sm btn-success">Iniciar cotação</button>
+    <app-buttons
+      routerLink="/iniciar-cotacao"
+      titulo="Iniciar cotação"
+      classeBotao="btn-success"
+    ></app-buttons>
   </div>
 </div>

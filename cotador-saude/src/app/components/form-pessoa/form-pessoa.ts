@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Buttons } from '../../shared/buttons/buttons';
 
 interface Cliente {
   id: number;
@@ -13,19 +14,18 @@ interface Cliente {
 @Component({
   selector: 'app-form-pessoa',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, Buttons],
   templateUrl: './form-pessoa.html',
-  styleUrls: ['./form-pessoa.css'],
 })
 export class FormPessoa {
-  pessoas: Cliente[] = [{ id: 1, nomeCompleto: '', telefone: '', idade: null }];
+  clientes: Cliente[] = [{ id: 1, nomeCompleto: '', telefone: '', idade: null }];
 
   private proximoId = 2;
 
   // adicionar cliente ao formulário
   //refatorar posteriormente para adicionar cnpj
   adicionarCliente(): void {
-    this.pessoas.push({
+    this.clientes.push({
       id: this.proximoId++,
       nomeCompleto: '',
       telefone: '',
@@ -35,8 +35,8 @@ export class FormPessoa {
 
   //remove cliente do formulário
   removerCliente(id: number): void {
-    if (this.pessoas.length > 1) {
-      this.pessoas = this.pessoas.filter((p) => p.id !== id);
+    if (this.clientes.length > 1) {
+      this.clientes = this.clientes.filter((p) => p.id !== id);
     }
   }
 
