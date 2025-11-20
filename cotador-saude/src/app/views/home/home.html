@@ -1,0 +1,24 @@
+<div class="d-flex flex-column justify-content-center align-items-center vh-100 p-3">
+     <div class="text-center mb-4">
+      <h1 class="text-success fw-semibold">Vidas Unidas Corretora</h1>
+      Sistema de Cotação de Planos de Saúde
+    </div>
+  
+  <div class="bg-white p-4 rounded shadow-lg">
+    <div class="mb-4">
+      <h4>Tipo de Plano</h4>
+      <p>Selecione o tipo de plano que deseja cotar</p>
+    </div>
+
+    <div class="d-flex gap-4">
+      <app-card-seletor-pessoa
+      tipo_pessoa="Pessoa Física"
+      descricao="Planos individuais e coletivos por adesão"
+      ></app-card-seletor-pessoa>
+      <app-card-seletor-pessoa
+      tipo_pessoa="Pessoa Jurídica"
+      descricao="Planos empresariais a partir de 2 vidas"
+      ></app-card-seletor-pessoa>
+    </div>
+  </div>
+</div>
