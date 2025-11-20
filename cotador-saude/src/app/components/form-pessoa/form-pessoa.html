@@ -1,30 +1,83 @@
-<button class="btn btn-sm btn-outline-secondary" routerLink="/">Voltar</button>
+<button class="btn btn-sm btn-outline-secondary mb-3" routerLink="/">Voltar</button>
+
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card p-4 p-md-5 border rounded text-center">
+  <div class="card p-4 p-md-5 border rounded text-center" style="max-width: 700px; width: 100%">
     <h3 class="fw-semibold text-dark mb-2">Cotação de Plano de Saúde - Pessoa Física</h3>
-    <p class="mb-4">Preencha os dados do cliente para iniciar a cotação</p>
+    <p class="text-muted mb-4">Preencha os dados das pessoas para iniciar a cotação</p>
 
-    <div class="form-section bg-whites rounded mb-4 text-start">
-      <div class="mb-3">
-        <label for="nomeCompleto" class="form-label small fw-semibold">Nome Completo</label>
-        <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite o nome" />
+    <!-- Loop através das pessoas -->
+    <div
+      *ngFor="let cliente of pessoas; let i = index"
+      class="form-section bg-light rounded mb-3 p-4 text-start position-relative"
+    >
+      <!-- Cabeçalho com título e botão de remover -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="fw-semibold mb-0">Cliente {{ i + 1 }}</h6>
+        <button
+          *ngIf="pessoas.length > 1"
+          type="button"
+          class="btn btn-sm btn-outline-danger"
+          (click)="removerCliente(cliente.id)"
+        >
+          Remover cliente
+        </button>
       </div>
+
+      <!-- Campos do formulário -->
       <div class="mb-3">
-        <label for="telefone" class="form-labe small fw-semibold">Telefone</label>
-        <input type="tel" class="form-control" id="telefone" placeholder="(00) 00000-0000" />
+        <label [for]="'nomeCompleto' + cliente.id" class="form-label small fw-semibold"
+          >Nome Completo</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          [id]="'nomeCompleto' + cliente.id"
+          [(ngModel)]="cliente.nomeCompleto"
+          placeholder="Digite o nome"
+        />
       </div>
+
+      <div class="mb-3">
+        <label [for]="'telefone' + cliente.id" class="form-label small fw-semibold">Telefone</label>
+        <input
+          type="tel"
+          class="form-control"
+          [id]="'telefone' + cliente.id"
+          [(ngModel)]="cliente.telefone"
+          (input)="formatarTelefone($event, cliente)"
+          maxlength="15"
+          placeholder="(00) 00000-0000"
+        />
+      </div>
+
       <div class="mb-0">
-        <label for="idade" class="form-label small fw-semibold">Idade</label>
-        <input type="number" class="form-control" id="idade" placeholder="Digite a idade" />
+        <label [for]="'idade' + cliente.id" class="form-label small fw-semibold">Idade</label>
+        <input
+          type="number"
+          class="form-control"
+          [id]="'idade' + cliente.id"
+          [(ngModel)]="cliente.idade"
+          min="0"
+          max="120"
+          placeholder="Digite a idade"
+        />
       </div>
     </div>
 
+    <!-- Botão adicionar pessoa -->
     <div class="d-grid mb-4">
-      <button class="btn btn-sm btn-outline-secondary p-2">Adicionar mais um pessoa</button>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary p-2"
+        (click)="adicionarCliente()"
+      >
+        Adicionar mais uma pessoa
+      </button>
     </div>
 
+    <!-- Botão buscar planos -->
     <div class="d-grid">
-      <button class="btn btn-success p-2">Buscar planos disponíveis</button>
+      <button type="button" class="btn btn-success p-2">Buscar planos disponíveis</button>
     </div>
   </div>
 </div>
