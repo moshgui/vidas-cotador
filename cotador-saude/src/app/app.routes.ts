@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Home } from './views/home/home';
 import { FormPessoa } from './components/form-pessoa/form-pessoa';
-import { SeletorOperadora } from './components/seletor-operadora/seletor-operadora';
+import { Operadoras } from './views/operadoras/operadoras';
 
 export const routes: Routes = [
   {
@@ -14,6 +14,6 @@ export const routes: Routes = [
   },
   {
     path: 'selecionar-operadora',
-    component: SeletorOperadora,
+    component: Operadoras,
   },
 ];
