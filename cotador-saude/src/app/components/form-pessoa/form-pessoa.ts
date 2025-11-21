@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Buttons } from '../../shared/buttons/buttons';
 
 interface Cliente {
@@ -18,6 +18,16 @@ interface Cliente {
   templateUrl: './form-pessoa.html',
 })
 export class FormPessoa {
+  isChildRouteActive: boolean = true; //controla a visibilidade do formulário
+
+  constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit() {
+    this.isChildRouteActive = !!this.route.snapshot.firstChild;
+    this.router.events.subscribe(() => {
+      this.isChildRouteActive = !!this.route.snapshot.firstChild;
+    });
+  }
+
   clientes: Cliente[] = [{ id: 1, nomeCompleto: '', telefone: '', idade: null }];
 
   private proximoId = 2;

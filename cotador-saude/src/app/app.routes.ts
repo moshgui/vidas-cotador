@@ -11,9 +11,6 @@ export const routes: Routes = [
   {
     path: 'iniciar-cotacao',
     component: FormPessoa,
-  },
-  {
-    path: 'selecionar-operadora',
-    component: Operadoras,
+    children: [{ path: 'selecionar-operadora', component: Operadoras }],
   },
 ];

@@ -1,7 +1,10 @@
 <app-buttons routerLink="/" titulo="Voltar" classeBotao="btn-outline-secondary mb-3"
   >Voltar</app-buttons
 >
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
+<div
+  *ngIf="!isChildRouteActive"
+  class="container d-flex justify-content-center align-items-center min-vh-100"
+>
   <div class="card p-4 p-md-5 border rounded text-center" style="max-width: 700px; width: 100%">
     <h3 class="fw-semibold text-dark mb-2">Cotação de Plano de Saúde - Pessoa Física</h3>
     <p class="text-muted mb-4">Preencha os dados das pessoas para iniciar a cotação</p>
@@ -72,10 +75,11 @@
 
       <!-- Botão buscar planos -->
       <app-buttons
-        routerLink="/selecionar-operadora"
+        routerLink="/iniciar-cotacao/selecionar-operadora"
         titulo="Buscar planos disponíveis"
         classeBotao="btn-success p-2 w-100"
       ></app-buttons>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
