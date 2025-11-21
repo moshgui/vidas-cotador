@@ -1,84 +1,88 @@
-<app-buttons routerLink="/" titulo="Voltar" classeBotao="btn-outline-secondary mb-3"
-  >Voltar</app-buttons
->
 <div
   *ngIf="!isChildRouteActive"
   class="container d-flex justify-content-center align-items-center min-vh-100"
 >
-  <div class="card p-4 p-md-5 border rounded text-center" style="max-width: 700px; width: 100%">
-    <h3 class="fw-semibold text-dark mb-2">Cotação de Plano de Saúde - Pessoa Física</h3>
-    <p class="text-muted mb-4">Preencha os dados das pessoas para iniciar a cotação</p>
+  <div>
+    <div class="card p-4 p-md-5 border rounded text-center" style="max-width: 700px; width: 100%">
+      <h3 class="fw-semibold text-dark mb-2">Cotação de Plano de Saúde - Pessoa Física</h3>
+      <p class="text-muted mb-4">Preencha os dados das pessoas para iniciar a cotação</p>
 
-    <!-- Loop através das pessoas -->
-    <div
-      *ngFor="let cliente of clientes; let i = index"
-      class="form-section bg-light rounded mb-3 p-4 text-start position-relative"
-    >
-      <!-- Cabeçalho com título e botão de remover -->
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h6 class="fw-semibold mb-0">Cliente {{ i + 1 }}</h6>
+      <!-- Loop através das pessoas -->
+      <div
+        *ngFor="let cliente of clientes; let i = index"
+        class="form-section bg-light rounded mb-3 p-4 text-start position-relative"
+      >
+        <!-- Cabeçalho com título e botão de remover -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="fw-semibold mb-0">Cliente {{ i + 1 }}</h6>
+          <app-buttons
+            *ngIf="clientes.length > 1"
+            (click)="removerCliente(cliente.id)"
+            titulo="Remover cliente"
+            classeBotao="btn-outline-danger"
+          ></app-buttons>
+        </div>
+
+        <!-- Campos do formulário -->
+        <div class="mb-3">
+          <label [for]="'nomeCompleto' + cliente.id" class="form-label small fw-semibold"
+            >Nome Completo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [id]="'nomeCompleto' + cliente.id"
+            [(ngModel)]="cliente.nomeCompleto"
+            placeholder="Digite o nome"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label [for]="'telefone' + cliente.id" class="form-label small fw-semibold"
+            >Telefone</label
+          >
+          <input
+            type="tel"
+            class="form-control"
+            [id]="'telefone' + cliente.id"
+            [(ngModel)]="cliente.telefone"
+            (input)="formatarTelefone($event, cliente)"
+            maxlength="15"
+            placeholder="(00) 00000-0000"
+          />
+        </div>
+
+        <div class="mb-0">
+          <label [for]="'idade' + cliente.id" class="form-label small fw-semibold">Idade</label>
+          <input
+            type="number"
+            class="form-control"
+            [id]="'idade' + cliente.id"
+            [(ngModel)]="cliente.idade"
+            min="0"
+            max="120"
+            placeholder="Digite a idade"
+          />
+        </div>
+      </div>
+      <div class="d-grid gap-2">
+        <!-- Botão adicionar pessoa -->
         <app-buttons
-          *ngIf="clientes.length > 1"
-          (click)="removerCliente(cliente.id)"
-          titulo="Remover cliente"
-          classeBotao="btn-outline-danger"
+          (click)="adicionarCliente()"
+          titulo="Adicionar mais um pessoa"
+          classeBotao="btn-outline-secondary p-2 w-100"
         ></app-buttons>
-      </div>
 
-      <!-- Campos do formulário -->
-      <div class="mb-3">
-        <label [for]="'nomeCompleto' + cliente.id" class="form-label small fw-semibold"
-          >Nome Completo</label
+        <!-- Botão buscar planos -->
+        <app-buttons
+          routerLink="/iniciar-cotacao/selecionar-operadora"
+          titulo="Buscar planos disponíveis"
+          classeBotao="btn-success p-2 w-100"
+        ></app-buttons>
+        <app-buttons routerLink="/" titulo="Voltar" classeBotao="btn-outline-danger mb-3"
+          >Voltar</app-buttons
         >
-        <input
-          type="text"
-          class="form-control"
-          [id]="'nomeCompleto' + cliente.id"
-          [(ngModel)]="cliente.nomeCompleto"
-          placeholder="Digite o nome"
-        />
       </div>
-
-      <div class="mb-3">
-        <label [for]="'telefone' + cliente.id" class="form-label small fw-semibold">Telefone</label>
-        <input
-          type="tel"
-          class="form-control"
-          [id]="'telefone' + cliente.id"
-          [(ngModel)]="cliente.telefone"
-          (input)="formatarTelefone($event, cliente)"
-          maxlength="15"
-          placeholder="(00) 00000-0000"
-        />
-      </div>
-
-      <div class="mb-0">
-        <label [for]="'idade' + cliente.id" class="form-label small fw-semibold">Idade</label>
-        <input
-          type="number"
-          class="form-control"
-          [id]="'idade' + cliente.id"
-          [(ngModel)]="cliente.idade"
-          min="0"
-          max="120"
-          placeholder="Digite a idade"
-        />
-      </div>
-    </div>
-    <div class="d-grid gap-2">
-      <!-- Botão adicionar pessoa -->
-      <app-buttons
-        (click)="adicionarCliente()"
-        titulo="Adicionar mais um pessoa"
-        classeBotao="btn-outline-secondary p-2 w-100"
-      ></app-buttons>
-
-      <!-- Botão buscar planos -->
-      <app-buttons
-        routerLink="/iniciar-cotacao/selecionar-operadora"
-        titulo="Buscar planos disponíveis"
-        classeBotao="btn-success p-2 w-100"
-      ></app-buttons>
     </div>
   </div>
 </div>
