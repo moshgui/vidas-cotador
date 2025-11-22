@@ -6,7 +6,6 @@ import { NgIf } from '@angular/common';
   selector: 'app-seletor-operadora',
   imports: [NgIf, Buttons, RouterLink, RouterOutlet],
   templateUrl: './seletor-operadora.html',
-  styleUrl: './seletor-operadora.css',
 })
 export class SeletorOperadora {
   @Input() nomeOperadora = '';
