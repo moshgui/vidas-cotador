@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center min-vh-100 p-3">
-  <div class="text-center mb-4">
+  <div *ngIf="!isChildRouteActive" class="text-center mb-4">
     <h1 class="text-success fw-semibold">Escolha a operadora</h1>
     Selecione a operadora para visualizar os planos dispon
   </div>

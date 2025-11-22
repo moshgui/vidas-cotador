@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { Home } from './views/home/home';
 import { FormPessoa } from './components/form-pessoa/form-pessoa';
 import { Operadoras } from './views/operadoras/operadoras';
-import { SeletorPlano } from './components/seletor-plano/seletor-plano';
+import { Planos } from './views/planos/planos';
 
 export const routes: Routes = [
   {
@@ -19,7 +19,7 @@ export const routes: Routes = [
         children: [
           {
             path: 'selecionar-plano',
-            component: SeletorPlano,
+            component: Planos,
           },
         ],
       },
