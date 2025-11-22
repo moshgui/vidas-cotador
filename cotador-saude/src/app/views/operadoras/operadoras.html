@@ -22,7 +22,11 @@
       descricaoOperadora="Planos para servidores públicos e profissionais liberais"
     ></app-seletor-operadora>
   </div>
-  <app-buttons routerLink="/iniciar-cotacao" titulo="Voltar" classeBotao="btn-outline-danger m-3"
+  <app-buttons
+    *ngIf="!isChildRouteActive"
+    routerLink="/iniciar-cotacao"
+    titulo="Voltar"
+    classeBotao="btn-outline-danger m-3"
     >Voltar</app-buttons
   >
 </div>
