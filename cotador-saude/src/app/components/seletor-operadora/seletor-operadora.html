@@ -2,6 +2,11 @@
   <div class="card-body">
     <h6 class="card-title">{{ nomeOperadora }}</h6>
     <p class="card-text small">{{ descricaoOperadora }}</p>
-    <app-buttons titulo="Ver planos disponíveis" classeBotao="btn-success"></app-buttons>
+    <app-buttons
+      routerLink="selecionar-plano"
+      titulo="Ver planos disponíveis"
+      classeBotao="btn-success"
+    ></app-buttons>
   </div>
 </div>
+<router-outlet></router-outlet>
