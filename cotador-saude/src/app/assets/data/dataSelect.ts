@@ -171,6 +171,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectPublico2Vidas: {
     name: 'Plano A Select - Servidor Público (2 Vidas)',
@@ -193,6 +194,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectPublico3Vidas: {
     name: 'Plano A Select - Servidor Público (3 Vidas)',
@@ -237,6 +239,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectLiberal1Vida: {
     name: 'Plano A Select - Profissional Liberal/Estudantes/CLT (1 Vida)',
@@ -259,6 +262,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectLiberal2Vidas: {
     name: 'Plano A Select - Profissional Liberal/Estudantes/CLT (2 Vidas)',
@@ -281,6 +285,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectLiberal3Vidas: {
     name: 'Plano A Select - Profissional Liberal/Estudantes/CLT (3 Vidas)',
@@ -303,6 +308,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
   selectLiberal4Vidas: {
     name: 'Plano A Select - Profissional Liberal/Estudantes/CLT (4 Vidas)',
@@ -325,6 +331,7 @@ export const PlanDetais = {
       'Parto a termo: 300 dias',
       'Doenças e lesões pré-existentes: 24 meses',
     ],
+    procedures: ['Não se aplica'],
   },
 };
 
