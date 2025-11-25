@@ -1,4 +1,5 @@
-export interface PriceTier {
+// Definição da interface para os preços dos planos de saúde Select
+export interface PriceTable {
   ageRange: string;
   minAge: number;
   maxAge: number | null;
@@ -14,7 +15,7 @@ export interface PriceTier {
 
 //tabela de preços dos planos de saúde Select
 //arrays de objetos para cada faixa etária com os preços correspondentes
-export const pricingTiers: PriceTier[] = [
+export const pricingTiers: PriceTable[] = [
   {
     ageRange: '0 - 18',
     minAge: 0,
@@ -327,7 +328,8 @@ export const PlanDetais = {
   },
 };
 
-// Função para obter o preço com base na idade
+// Função para obter o preço com base na faixa etária
+//recebe o parametro idade e retorna um objeto com os preços correspondentes dentro da faixa etária
 export const getPriceByAge = (
   age: number
 ): {
