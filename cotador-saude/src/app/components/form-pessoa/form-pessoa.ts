@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Buttons } from '../../shared/buttons/buttons';
 
-interface Cliente {
+interface Client {
   id: number;
-  nomeCompleto: string;
-  telefone: string;
-  idade: number | null;
+  fullName: string;
+  phone: string;
+  age: number | null;
 }
 
 @Component({
@@ -21,6 +21,8 @@ export class FormPessoa {
   isChildRouteActive: boolean = true; //controla a visibilidade do formulário
 
   constructor(private route: ActivatedRoute, private router: Router) {}
+  //verifica se a rota filho esta ativa
+  //atualiza a variavel isChildRouteActive
   ngOnInit() {
     this.isChildRouteActive = !!this.route.snapshot.firstChild;
     this.router.events.subscribe(() => {
@@ -28,30 +30,31 @@ export class FormPessoa {
     });
   }
 
-  clientes: Cliente[] = [{ id: 1, nomeCompleto: '', telefone: '', idade: null }];
+  // lista de clientes no formulário
+  clients: Client[] = [{ id: 1, fullName: '', phone: '', age: null }];
 
-  private proximoId = 2;
+  private nextId = 2;
 
   // adicionar cliente ao formulário
   //refatorar posteriormente para adicionar cnpj
-  adicionarCliente(): void {
-    this.clientes.push({
-      id: this.proximoId++,
-      nomeCompleto: '',
-      telefone: '',
-      idade: null,
+  addClient(): void {
+    this.clients.push({
+      id: this.nextId++,
+      fullName: '',
+      phone: '',
+      age: null,
     });
   }
 
   //remove cliente do formulário
-  removerCliente(id: number): void {
-    if (this.clientes.length > 1) {
-      this.clientes = this.clientes.filter((p) => p.id !== id);
+  removeClient(id: number): void {
+    if (this.clients.length > 1) {
+      this.clients = this.clients.filter((p) => p.id !== id);
     }
   }
 
   // formatar telefone padrao (XX) XXXXX-XXXX
-  formatarTelefone(event: any, pessoa: Cliente): void {
+  formatPhone(event: any, person: Client): void {
     let valor = event.target.value.replace(/\D/g, '');
 
     if (valor.length <= 11) {
@@ -62,6 +65,6 @@ export class FormPessoa {
       }
     }
 
-    pessoa.telefone = valor;
+    person.phone = valor;
   }
 }

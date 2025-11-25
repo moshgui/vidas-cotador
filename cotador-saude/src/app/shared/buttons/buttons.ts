@@ -7,6 +7,6 @@ import { NgClass } from '@angular/common';
   templateUrl: './buttons.html',
 })
 export class Buttons {
-  @Input() titulo = '';
-  @Input() classeBotao = '';
+  @Input() titleButton = '';
+  @Input() classButton = '';
 }

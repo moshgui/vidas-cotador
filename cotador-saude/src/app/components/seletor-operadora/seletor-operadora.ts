@@ -8,8 +8,8 @@ import { NgIf } from '@angular/common';
   templateUrl: './seletor-operadora.html',
 })
 export class SeletorOperadora {
-  @Input() nomeOperadora = '';
-  @Input() descricaoOperadora = '';
+  @Input() operatorName = '';
+  @Input() operatorDescription = '';
 
   isChildRouteActive: boolean = true;
 

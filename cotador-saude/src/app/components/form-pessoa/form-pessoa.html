@@ -9,56 +9,56 @@
 
       <!-- Loop através das pessoas -->
       <div
-        *ngFor="let cliente of clientes; let i = index"
+        *ngFor="let client of clients; let i = index"
         class="form-section bg-light rounded mb-3 p-4 text-start position-relative"
       >
         <!-- Cabeçalho com título e botão de remover -->
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h6 class="fw-semibold mb-0">Cliente {{ i + 1 }}</h6>
           <app-buttons
-            *ngIf="clientes.length > 1"
-            (click)="removerCliente(cliente.id)"
-            titulo="Remover cliente"
-            classeBotao="btn-outline-danger"
+            *ngIf="clients.length > 1"
+            (click)="removeClient(client.id)"
+            titleButton="Remover cliente"
+            classButtonw="btn-outline-danger"
           ></app-buttons>
         </div>
 
         <!-- Campos do formulário -->
         <div class="mb-3">
-          <label [for]="'nomeCompleto' + cliente.id" class="form-label small fw-semibold"
+          <label [for]="'nomeCompleto' + client.id" class="form-label small fw-semibold"
             >Nome Completo</label
           >
           <input
             type="text"
             class="form-control"
-            [id]="'nomeCompleto' + cliente.id"
-            [(ngModel)]="cliente.nomeCompleto"
+            [id]="'nomeCompleto' + client.id"
+            [(ngModel)]="client.fullName"
             placeholder="Digite o nome"
           />
         </div>
 
         <div class="mb-3">
-          <label [for]="'telefone' + cliente.id" class="form-label small fw-semibold"
+          <label [for]="'telefone' + client.id" class="form-label small fw-semibold"
             >Telefone</label
           >
           <input
             type="tel"
             class="form-control"
-            [id]="'telefone' + cliente.id"
-            [(ngModel)]="cliente.telefone"
-            (input)="formatarTelefone($event, cliente)"
+            [id]="'telefone' + client.id"
+            [(ngModel)]="client.phone"
+            (input)="formatPhone($event, client)"
             maxlength="15"
             placeholder="(00) 00000-0000"
           />
         </div>
 
         <div class="mb-0">
-          <label [for]="'idade' + cliente.id" class="form-label small fw-semibold">Idade</label>
+          <label [for]="'idade' + client.id" class="form-label small fw-semibold">Idade</label>
           <input
             type="number"
             class="form-control"
-            [id]="'idade' + cliente.id"
-            [(ngModel)]="cliente.idade"
+            [id]="'idade' + client.id"
+            [(ngModel)]="client.age"
             min="0"
             max="120"
             placeholder="Digite a idade"
@@ -68,18 +68,18 @@
       <div class="d-grid gap-2">
         <!-- Botão adicionar pessoa -->
         <app-buttons
-          (click)="adicionarCliente()"
-          titulo="Adicionar mais um pessoa"
-          classeBotao="btn-outline-secondary p-2 w-100"
+          (click)="addClient()"
+          titleButton="Adicionar mais um pessoa"
+          classButton="btn-outline-secondary p-2 w-100"
         ></app-buttons>
 
         <!-- Botão buscar planos -->
         <app-buttons
           routerLink="/iniciar-cotacao/selecionar-operadora"
-          titulo="Buscar planos disponíveis"
-          classeBotao="btn-success p-2 w-100"
+          titleButton="Buscar planos disponíveis"
+          classButton="btn-success p-2 w-100"
         ></app-buttons>
-        <app-buttons routerLink="/" titulo="Voltar" classeBotao="btn-outline-danger mb-3"
+        <app-buttons routerLink="/" titleButton="Voltar" classButton="btn-outline-danger mb-3"
           >Voltar</app-buttons
         >
       </div>

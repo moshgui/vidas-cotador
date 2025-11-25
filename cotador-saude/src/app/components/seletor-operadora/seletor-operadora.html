@@ -1,12 +1,12 @@
 <div *ngIf="!isChildRouteActive">
   <div class="card hover">
     <div class="card-body">
-      <h6 class="card-title">{{ nomeOperadora }}</h6>
-      <p class="card-text small">{{ descricaoOperadora }}</p>
+      <h6 class="card-title">{{ operatorName }}</h6>
+      <p class="card-text small">{{ operatorDescription }}</p>
       <app-buttons
         routerLink="selecionar-plano"
-        titulo="Ver planos disponíveis"
-        classeBotao="btn-success"
+        titleButton="Ver planos disponíveis"
+        classButton="btn-success"
       ></app-buttons>
     </div>
   </div>

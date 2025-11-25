@@ -7,11 +7,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './seletor-plano.css',
 })
 export class SeletorPlano {
-  @Input() nomeCliente: string = '';
-  @Input() faixaEtaria = '';
-  @Input() nomePlano: string = '';
-  @Input() tipoPlano: string = '';
-  @Input() valorPlanoInteiro = '';
-  @Input() featuresPlano = '';
-  @Input() valorPlanoDecimal = '';
+  @Input() clientName: string = '';
+  @Input() ageRange = '';
+  @Input() planName: string = '';
+  @Input() planType: string = '';
+  @Input() intPlanValue = '';
+  @Input() planFeatures = '';
+  @Input() doublePlanValue = '';
 }
